@@ -1,0 +1,209 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.main p, .main a {
+  margin: 0.5em 2rem;
+  width: 100vw;
+}
+
+.main a {
+  cursor: pointer;
+  color: rgb(127, 210, 210);
+  font-size: 0.6rem;
+}
+
+.web3Container {
+  margin: 0px;
+  /* background-image: url();
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; */
+  height: 100vh;
+  width: 100vw;
+  min-width: 300px;
+  position: relative;
+  overflow: hidden;
+}
+
+.logoContainer {
+  margin-left: 15px;
+  margin-top: 15px;
+  position: fixed;
+  width: 10%;
+  height: auto;
+}
+
+.logoContainer a {
+  margin: 0px;
+}
+
+.footerLogo {
+  width: clamp(10px, 30px, 75px);
+  
+}
+
+.topLogoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  background-color: transparent;
+  position: relative;
+  top: 0;
+  z-index: 0;
+}
+
+.topLogo {
+  width: 100%;
+  height: auto;
+  max-width: 300px;
+  max-height: 400px;
+}
+
+.bottomImg {
+  display: none;
+  width: 100%;
+  max-width: 608px;
+  background-color: transparent;
+  position: absolute;
+  bottom: 0;
+  z-index: 0;
+}
+
+.rainbowContainer {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  background-image: url(../public/connect.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  cursor: pointer;
+  width: 100%;
+  height: 5%;
+  /* position: fixed;
+  right: 0; */
+  --rk-shadows-connectButton: transparent;
+}
+
+.rainbowContainer svg{
+  color: transparent;
+}
+
+.connected {
+  /* Background image for connected state */
+  background-image: url('../public/connected.png');
+  /* Other styles for the container in the connected state */
+}
+
+.rainbowContainer button {
+  --rk-colors-accentColor: rgba(0, 0, 0, 0);
+  --rk-colors-connectButtonBackground: rgba(0, 0, 0, 0);
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.rainbowContainer div {
+  width: 100%;
+}
+
+.mintContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 40%;
+  position: relative;
+  z-index: 1;
+}
+
+.quantityControl {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 20%;
+}
+
+.arrowButton {
+  margin: 10px 10px 0px;
+  width: auto;
+  height: 100%;
+  cursor: pointer;
+}
+
+.quantityImage {
+  width: auto;
+  height: 100%;
+}
+
+.mintButton {
+  margin: 5px;
+  width: auto;
+  height: 50%;
+  cursor: pointer;
+}
+
+.mintToControl {
+  display: block;
+  width: 50vw;
+}
+
+.mintToControl input {
+  width: 100%;
+  text-align: center;
+  font-size: 1em;
+}
+
+.mintCostSupply {
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1em;
+  text-align: center;
+}
+
+.adminContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  position: relative;
+  z-index: 1;
+}
+
+.adminSection {
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1em;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .topLogo {
+    max-width: 200px;
+  }
+}
