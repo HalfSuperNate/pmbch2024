@@ -3,30 +3,30 @@ import { useAccount, useContractWrite } from 'wagmi';
 import { useIsMounted } from './useIsMounted';
 import { GetPaused, GetPausedBatch, GetSupply, GetCost, AdminCheck } from './readContract';
 import { _abi, _abiAddress, _listWallets, GetContractAddy } from './abiGet';
-import { MerkleTree } from 'merkletreejs';
-import { keccak256 } from 'ethers';
+// import { MerkleTree } from 'merkletreejs';
+// import { keccak256 } from 'ethers';
 import styles from '../styles/Home.module.css';
 import Image from 'next/image';
 
-function GetProof(_address) {
-    if(!_address || !isValidEthereumAddress(_address)) return [];
-    // Convert the wallet addresses to an array of strings
-    const walletAddresses = _listWallets.map(x => keccak256(x));
-    const merkleTree = new MerkleTree(walletAddresses, keccak256, { sortPairs: true });
+// function GetProof(_address) {
+//     if(!_address || !isValidEthereumAddress(_address)) return [];
+//     // Convert the wallet addresses to an array of strings
+//     const walletAddresses = _listWallets.map(x => keccak256(x));
+//     const merkleTree = new MerkleTree(walletAddresses, keccak256, { sortPairs: true });
 
-    // Get the index of the wallet address you want to generate a proof for
-    const wallet = walletAddresses.find(w => w.toLowerCase() === keccak256(_address));
-    if(wallet){
-        // Generate a proof for the specified wallet;
-        const proof = merkleTree.getHexProof(wallet);
-        // Print the proof
-        console.log("Proof:", proof);
-        return proof;
-    } else {
-        console.error(`Wallet ${_address} not found in the list.`);
-        return [];
-    }
-}
+//     // Get the index of the wallet address you want to generate a proof for
+//     const wallet = walletAddresses.find(w => w.toLowerCase() === keccak256(_address));
+//     if(wallet){
+//         // Generate a proof for the specified wallet;
+//         const proof = merkleTree.getHexProof(wallet);
+//         // Print the proof
+//         console.log("Proof:", proof);
+//         return proof;
+//     } else {
+//         console.error(`Wallet ${_address} not found in the list.`);
+//         return [];
+//     }
+// }
 
 function isValidEthereumAddress(_address) {
     // Check if the address is a non-empty string
@@ -44,28 +44,28 @@ function MintComponent() {
     const mounted = useIsMounted();
     const [quantity, setQuantity] = useState(1);
     const [walletAddress, setWalletAddress] = useState(address);
-    var proof = GetProof(address);
-    const isOnList = proof.length > 0;
-    var _cost = GetCost(0,isOnList,2);
+    //var proof = GetProof(address);
+    //const isOnList = proof.length > 0;
+    var _cost = GetCost(0,quantity);
     if (AdminCheck(address)) {
         _cost = 0;
     }
-    const _supply = GetSupply(0);
+    const _supply = GetSupply(1);
     //const _mintPhase = GetMintPhase();
     const _mintPhase = 2;
     const _paused = GetPaused();
-    const _pausedBatch = GetPausedBatch(0);
+    const _pausedBatch = GetPausedBatch(1);
     var errorFlag = false;
     const minQty = 1;
     const maxQty = 20;
-    const nativeToken = "ETH"; // ETH or MATIC
+    const nativeToken = "MATIC"; // ETH or MATIC
 
     const { data, isLoading, isSuccess, error, write } = useContractWrite({
         address: GetContractAddy(),
         abi: _abi,
-        functionName: '_mintInOrder',
-        args: [walletAddress, quantity, 0, proof],
-        //args: [walletAddress, quantity],
+        functionName: 'mint',
+        //args: [walletAddress, quantity, 0, proof],
+        args: [walletAddress, 1, quantity],
         value: (parseInt(_cost) * quantity).toString(),
     });
 
@@ -162,7 +162,7 @@ function MintComponent() {
                 {mounted ? _mintPhase == 0 && <p>Minting Soon</p> : null}
                 {mounted ? _mintPhase == 1 && <p>Whitelist Phase</p> : null}
                 {mounted ? _mintPhase == 2 && <p>{((parseInt(_cost) * quantity) / 10**18)} {nativeToken}</p> : null}
-                {mounted ? _supply >= 0 && <p>Supply: {parseInt(_supply) - 1} / 5555</p> : null}
+                {mounted ? _supply >= 0 && <p>Supply: {parseInt(_supply) - 1} / 420</p> : null}
             </div>
             <div className={styles.mintButton}>
                 <Image

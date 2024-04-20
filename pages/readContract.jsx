@@ -16,7 +16,7 @@ export function GetPausedBatch(_batch) {
     const { data, isError, isLoading } = useContractRead({
         address: _abiAddress,
         abi: _abi,
-        functionName: 'pausedBatch',
+        functionName: 'batchPaused',
         args: [_batch],
     });
 
@@ -28,19 +28,19 @@ export function GetSupply(_batch) {
         address: _abiAddress,
         abi: _abi,
         //functionName: 'totalSupply',
-        functionName: 'tokenNextToMintInBatch',
+        functionName: 'getNextToken',
         args: [_batch],
     });
 
     return data;
 }
 
-export function GetCost(_batch, _onList, _tierID) {
+export function GetCost(_batch, _amount) {
     const { data, isError, isLoading } = useContractRead({
         address: _abiAddress,
         abi: _abi,
-        functionName: '_cost',
-        args: [_batch, _onList, _tierID]
+        functionName: 'getCost',
+        args: [_batch, _amount]
         //account: _sender,
     });
 
