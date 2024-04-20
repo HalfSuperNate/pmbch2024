@@ -32,10 +32,10 @@ const Home: NextPage = () => {
       <Image width={500} height={500} src="/bottomImg.png" alt="Logo" className={styles.bottomImg} />
 
       <footer className={styles.footer}>
-        <Link href="https://opensea.io/assets/matic/0xc9a42876c4c9132f6da2c9d93c342e47431d475b/" rel="noopener noreferrer" target="_blank">
+        <Link href="https://opensea.io/assets/matic/0xf879054723A845ad0102e23A8210648b97C25210/" rel="noopener noreferrer" target="_blank">
           <Image width={50} height={50} src="/opensea_icon.svg" alt="OpenSea" className={styles.footerLogo} />
         </Link>
-        <Link href="https://polygonscan.com/address/0xc9a42876c4c9132f6da2c9d93c342e47431d475b" rel="noopener noreferrer" target="_blank">
+        <Link href="https://polygonscan.com/address/0xf879054723A845ad0102e23A8210648b97C25210" rel="noopener noreferrer" target="_blank">
           <Image width={50} height={50} src="/polygonscan.svg" alt="Etherscan" className={styles.footerLogo} />
         </Link>
         <Link href="https://twitter.com/" rel="noopener noreferrer" target="_blank">

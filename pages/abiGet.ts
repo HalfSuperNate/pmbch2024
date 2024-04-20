@@ -1,5 +1,5 @@
 export function GetContractAddy() {
-    return "0xc9A42876c4C9132F6dA2c9D93c342e47431D475b";
+    return "0xf879054723A845ad0102e23A8210648b97C25210";
 }
 
 export const _abiAddress = GetContractAddy();
