@@ -35,13 +35,13 @@ export function GetSupply(_batch) {
     return data;
 }
 
-export function GetCost(_batch, _amount) {
+export function GetCost(_batch, _amount, _sender) {
     const { data, isError, isLoading } = useContractRead({
         address: _abiAddress,
         abi: _abi,
         functionName: 'getCost',
-        args: [_batch, _amount]
-        //account: _sender,
+        args: [_batch, _amount],
+        account: _sender,
     });
 
     return data;
