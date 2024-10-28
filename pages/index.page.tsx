@@ -17,8 +17,8 @@ const Home: NextPage = () => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Prime Legends Mint</title>
-        <meta name="description" content="Prime Legends NFT Mint - PMBC." />
+        <title>PMBC Halloween Mint</title>
+        <meta name="description" content="PMBC Halloween NFT Mint - PMBC." />
         <link href="/icon.png" rel="icon" type="image/x-icon"/>
       </Head>
 
