@@ -100,7 +100,7 @@ function MintComponent() {
             alert(`Error: Not Connected`);
             return;
         }
-        if (_paused == true && !_isAdmin){
+        if ((_paused == true || _pausedBatch == true) && !_isAdmin){
             alert(`Error: Paused`);
             return;
         }
@@ -163,7 +163,7 @@ function MintComponent() {
                 />
             </div>
             <div className={styles.mintCostSupply}>
-                {mounted ? _paused == true || _pausedBatch == true && <p>Mint Currently Paused</p> : null}
+                {mounted ? (_paused == true || _pausedBatch == true) && <p>Mint Currently Paused</p> : null}
                 {mounted ? _mintPhase == 0 && <p>Minting Soon</p> : null}
                 {mounted ? _mintPhase == 1 && <p>Whitelist Phase</p> : null}
                 {mounted ? _mintPhase == 2 && <p>{((parseInt(_cost)) / 10**18)} {nativeToken}</p> : null}
