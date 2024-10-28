@@ -19,7 +19,7 @@ const Home: NextPage = () => {
       <Head>
         <title>PMBC Halloween Mint</title>
         <meta name="description" content="PMBC Halloween NFT Mint - PMBC." />
-        <link href="/icon.png" rel="icon" type="image/x-icon"/>
+        <link href="/icon.jpg" rel="icon" type="image/x-icon"/>
       </Head>
 
       <main className={styles.main}>
@@ -32,13 +32,13 @@ const Home: NextPage = () => {
       <Image width={500} height={500} src="/bottomImg.png" alt="Logo" className={styles.bottomImg} />
 
       <footer className={styles.footer}>
-        <Link href="https://opensea.io/assets/matic/0xf879054723A845ad0102e23A8210648b97C25210/" rel="noopener noreferrer" target="_blank">
+        <Link href="https://opensea.io/assets/matic/0x72BCdE3C41c4Afa153F8E7849a9Cf64E2CC84E75/" rel="noopener noreferrer" target="_blank">
           <Image width={50} height={50} src="/opensea_icon.svg" alt="OpenSea" className={styles.footerLogo} />
         </Link>
-        <Link href="https://polygonscan.com/address/0xf879054723A845ad0102e23A8210648b97C25210" rel="noopener noreferrer" target="_blank">
+        <Link href="https://polygonscan.com/address/0x72BCdE3C41c4Afa153F8E7849a9Cf64E2CC84E75" rel="noopener noreferrer" target="_blank">
           <Image width={50} height={50} src="/polygonscan.svg" alt="Etherscan" className={styles.footerLogo} />
         </Link>
-        <Link href="https://twitter.com/" rel="noopener noreferrer" target="_blank">
+        <Link href="https://x.com/PrimeMatesBC" rel="noopener noreferrer" target="_blank">
           <Image width={50} height={50} src="/x_icon.svg" alt="Twitter" className={styles.footerLogo} />
         </Link>
       </footer>
