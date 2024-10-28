@@ -41,6 +41,7 @@ function isValidEthereumAddress(_address) {
 
 function MintComponent() {
     const { address } = useAccount();
+    var isAdmin = AdminCheck(address);
     const mounted = useIsMounted();
     const [quantity, setQuantity] = useState(1);
     const [walletAddress, setWalletAddress] = useState(address);
@@ -94,13 +95,17 @@ function MintComponent() {
 
     const handleMintClick = () => {
         // Perform minting logic here
+        let _isAdmin = isAdmin;
         if (!address) {
             alert(`Error: Not Connected`);
             return;
         }
-        if (_paused == true){
+        if (_paused == true && !_isAdmin){
             alert(`Error: Paused`);
             return;
+        }
+        if (_isAdmin){
+            _cost = 0;
         }
         if (!isValidEthereumAddress(walletAddress)) {
             alert(`Confirm your send to ${address} then press Mint to complete transaction.`);
